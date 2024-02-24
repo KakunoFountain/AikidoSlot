@@ -3,7 +3,7 @@ const url = new URL(window.location.href);
 const head = ['', '', '', '', '', '', '', '', '', '', '座技', '半身半立ち']
 const passive =     ['正面打ち', '横面打ち', '突き', 
                         '片手持ち', '交差持ち', '諸手持ち', 
-                    '       両手持ち', '後ろ両手持ち', '肩取り', '後ろ両肩取り']
+                            '両手持ち', '後ろ両手持ち', '肩取り', '後ろ両肩取り']
 const active = ['一教抑え込み', '二教抑え込み', '三教抑え込み', '四教抑え込み', '五教抑え込み', 
                 '小手返し', '入り身投げ', '天秤投げ', '隅落とし', '四方投げ表', '回転投げ表', '呼吸投げ', '呼吸法', 
                     '四方投げ裏', '回転投げ裏', '一教投げ', '二教投げ', '三教投げ', '太刀投げ', 
@@ -27,12 +27,15 @@ function GetQueryParam() {
     switch (param) {
         case 'beginner':
             document.getElementById("course").value = 'beginner';
+            console.log('現在、初心者コース');
             break;
         case 'firstexam':
             document.getElementById("course").value = 'firstexam';
+            console.log('現在、初段審査コース');
             break;
-        case 'expert':
+        default:
             document.getElementById("course").value = 'expert';
+            console.log('現在、上級コース');
             break;
     }
 
@@ -48,24 +51,21 @@ function ModelChange() {
     history.replaceState('', '', url.href);
 
     //Random()の範囲決定
-    let hed_size; let pasv_size; let actv_size; let sgl_size;
+    let hed_size; let pasv_size; let actv_size; let sgl_size; let per=-1;
     switch(course_val) {
         case 'beginner':
-            hed_size = 10; pasv_size = 6; actv_size = 13; sgl_size = 2;
-            console.log('現在、初心者コース');
+            hed_size = 10; pasv_size = 6; actv_size = 13; sgl_size = 2; per = 8;
             break;
         case 'firstexam':
             hed_size = 10; pasv_size = 3; actv_size = active.length-1 - 5; sgl_size = -1;
-            console.log('現在、初段審査コース');
             break;
         default:
-            hed_size = head.length; pasv_size = passive.length; actv_size = active.length; sgl_size = single.length;
-            console.log('現在、上級コース');
+            hed_size = head.length; pasv_size = passive.length; actv_size = active.length; sgl_size = single.length; per = 9;
             break;
     }
 
     //乱数で指定した配列要素の取得結果を表示
-    if (Math.floor( Math.random() * 25 ) % 25 == 0 && course_val !== "firstexam") {
+    if (Math.floor( Math.random() * per ) % per == 0 && course_val !== "firstexam") {
         head_inner.innerHTML = '';
         passive_inner.innerHTML = '';
         active_inner.innerHTML = single[Random(single, sgl_size)];
