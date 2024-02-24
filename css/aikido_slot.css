@@ -1,0 +1,38 @@
+html, body {
+    font-family: 'Yuji Boku';
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.modelname {
+    margin: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem auto;
+    height: auto;
+}
+
+#head,#passive,#active {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+}
+
+#head {
+    color: rgb(160, 47, 47);
+}
+
+#passive {
+    color: rgb(203, 190, 7);
+}
+
+#active {
+    color: rgb(14, 58, 159);
+}
+
+.blank {
+    margin-bottom: 50%;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合気道わざスロット</title>
+    <link rel="stylesheet" href="css/aikido_slot.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Yuji Boku' rel='stylesheet'>
+</head>
+
+
+<body>
+    <h1>合気道わざスロット</h1>
+
+    <main>
+        <div class="modelname">
+            <p><span id="head"></span></p><br>
+            <p><span id="passive"></span></p><br>
+            <p><span id="active"></span></p>
+        </div>
+
+        <button type="button" id="reload" value="reload" onClick="ModelChange()">別の技</button>
+        <br><br>
+        <select id="course" onchange="ModelChange()">
+            <option value="beginner">初心者コース</option>
+            <option value="firstexam">初段審査コース</option>
+            <option value="expert">上級コース</option>
+        </select>
+        <br><br>
+        <p><a href="index.html">もどる</a>
+    </main>
+
+    <div class="blank"></div>
+
+    <script src="js/aikido_slot.js"></script>
+</body>
+
+</html>
